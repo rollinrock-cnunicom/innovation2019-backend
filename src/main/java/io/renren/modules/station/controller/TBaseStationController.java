@@ -2,13 +2,10 @@ package io.renren.modules.station.controller;
 
 
 import io.renren.common.utils.R;
+import io.renren.modules.station.dto.EvaluateRequest;
 import io.renren.modules.station.service.impl.TBaseStationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -29,6 +26,11 @@ public class TBaseStationController {
     public R search(Double longitude, Double latitude, Double radius) {
 
         return R.ok().put("stations", baseStationService.search(longitude, latitude, radius));
+    }
+
+    @GetMapping("/evaluate")
+    public R evaluate(@RequestBody EvaluateRequest request) {
+        return R.ok().put("result", baseStationService.evaluate(request));
     }
 
 

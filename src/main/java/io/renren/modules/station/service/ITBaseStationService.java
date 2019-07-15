@@ -1,5 +1,7 @@
 package io.renren.modules.station.service;
 
+import io.renren.modules.station.dto.EvaluateRequest;
+import io.renren.modules.station.dto.EvaluateResult;
 import io.renren.modules.station.dto.StationDTO;
 import io.renren.modules.station.entity.TBaseStation;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -17,5 +19,7 @@ import java.util.List;
 public interface ITBaseStationService extends IService<TBaseStation> {
 
     List<StationDTO> search(Double longitude, Double latitude, Double radius);
+
+    EvaluateResult evaluate(EvaluateRequest evaluate);
 
 }
